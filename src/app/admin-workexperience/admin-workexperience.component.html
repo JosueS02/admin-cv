@@ -1,0 +1,55 @@
+<div class="experience-section">
+    <div class="card">
+        <h2>{{ btntxt }} Experiencia Laboral</h2>
+        <form (ngSubmit)="AgregarJob()">
+            <div class="form-group">
+                <label for="startDate">Inicio</label>
+                <input type="text" id="startDate" class="txt" placeholder="mm/yyyy" [(ngModel)]="myWorkExperience.startDate" name="startDate">
+            </div>
+
+            <div class="form-group">
+                <label for="endDate">Fin</label>
+                <input type="text" id="endDate" class="txt" placeholder="mm/yyyy" [(ngModel)]="myWorkExperience.endDate" name="endDate">
+            </div>
+
+            <div class="form-group">
+                <label for="location">Ubicación</label>
+                <input type="text" id="location" class="txt" placeholder="Ciudad, País" [(ngModel)]="myWorkExperience.location" name="location">
+            </div>
+
+            <div class="form-group">
+                <label for="position">Puesto</label>
+                <input type="text" id="position" class="txt" placeholder="Puesto desempeñado" [(ngModel)]="myWorkExperience.position" name="position">
+            </div>
+
+            <div class="form-group">
+                <label for="company">Empresa</label>
+                <input type="text" id="company" class="txt" placeholder="Nombre de la empresa" [(ngModel)]="myWorkExperience.company" name="company">
+            </div>
+
+            <div class="form-group">
+                <label for="accomplishments">Logros</label>
+                <input type="text" id="accomplishments" class="txt" placeholder="Principales logros" [(ngModel)]="myWorkExperience.accomplishments" name="accomplishments">
+            </div>
+
+            <button type="submit" class="btn submit">{{ btntxt }}</button>
+            <button type="button" class="btn" *ngIf="isEditing" (click)="resetForm()">Cancelar</button>
+        </form>
+    </div>
+
+    <div class="card">
+        <h3>Lista de Experiencia</h3>
+        <div *ngFor="let job of workExperience" class="experience-item">
+            <div class="job-details">
+                <strong>{{ job.company }}</strong> — {{ job.position }} <br>
+                <small>{{ job.startDate }} - {{ job.endDate }} | {{ job.location }}</small>
+                <p>{{ job.accomplishments }}</p>
+            </div>
+            <div class="actions">
+                <button class="btn edit" (click)="editJob(job)">Editar</button>
+                <button class="btn delete" (click)="deleteJob(job.id)">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+

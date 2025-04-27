@@ -1,0 +1,39 @@
+<div class="certificate-section">
+  <div class="cert-form card">
+    <h2>{{ btntxt }} Certificado</h2>
+    <form (ngSubmit)="AgregarCertificates()">
+      <div class="form-group">
+        <label for="certificateName">Nombre del Certificado</label>
+        <input type="text" id="certificateName" class="txt" name="certificate"
+          placeholder="Nombre del certificado" [(ngModel)]="myCertificates.certificate">
+      </div>
+      <div class="form-group">
+        <label for="certificateDescription">Contexto o Institución</label>
+        <input type="text" id="certificateDescription" class="txt" name="description"
+          placeholder="Contexto o institución" [(ngModel)]="myCertificates.description">
+      </div>
+      <div class="form-group">
+        <label for="certificateYear">Año</label>
+        <input type="text" id="certificateYear" class="txt" name="year" placeholder="Año (YYYY)"
+          [(ngModel)]="myCertificates.year">
+      </div>
+      <button type="submit" class="btn submit">{{ btntxt }}</button>
+      <button type="button" class="btn" *ngIf="isEditing" (click)="resetForm()">Cancelar</button>
+    </form>
+  </div>
+
+  <div class="cert-list card">
+    <h2>Certificados Guardados</h2>
+    <div *ngFor="let cert of certificates;" class="cert-preview">
+      <div class="cert-info">
+        <span class="cert-certificate">{{ cert.certificate }}</span>
+        <span class="cert-year">{{ cert.year }}</span>
+        <p>{{cert.description}}</p>
+      </div>
+      <div class="actions">
+        <button class="btn edit" (click)="editCertificate(cert)">Editar</button>
+        <button class="btn delete" (click)="deleteCertificate(cert.id)">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>

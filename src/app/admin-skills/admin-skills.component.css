@@ -1,0 +1,168 @@
+/* styles.css */
+/* ... (los estilos globales y del header/nav anteriores) ... */
+
+.skill-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide la sección en dos columnas iguales */
+    gap: 1.5rem;
+    padding: 2rem;
+    align-items: start; /* Alinea los elementos al inicio verticalmente */
+    width: 80%; /* Limita el ancho de la sección */
+    max-width: 960px; /* Establece un ancho máximo para la sección */
+    margin: 0 auto; /* Centra la sección horizontalmente */
+}
+
+.skill-form.card,
+.skill-list.card {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.skill-form h2,
+.skill-list h2 {
+    color: #f1c40f;
+    text-align: left;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #f1c40f;
+    font-size: 1.3rem;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #ecf0f1;
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+.skill-form input.txt {
+    width: calc(100% - 1rem);
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #34495e;
+    border-radius: 4px;
+    background-color: #34495e;
+    color: #ecf0f1;
+    font-size: 1rem;
+}
+
+.skill-form input.txt::placeholder {
+    color: #bdc3c7;
+}
+
+.skill-form button.btn.submit {
+    background-color: #f1c40f;
+    color: #333;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    display: block;
+    margin-top: 1rem;
+}
+
+.skill-form button.btn.submit:hover {
+    background-color: #e6b800;
+}
+
+.skill-list .skill-item {
+    background-color: #34495e;
+    color: #ecf0f1;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+}
+
+.skill-list .skill-item:last-child {
+    margin-bottom: 0;
+}
+
+.skill-list .skill-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.skill-list .skill-info {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+.skill-list .skill-skill {
+    font-weight: bold;
+    margin-right: 1rem;
+    min-width: 80px;
+}
+
+.skill-list .skill-percentage {
+    color: #bdc3c7;
+    margin-left: 0.5rem;
+    min-width: 40px;
+    text-align: right;
+}
+
+.skill-list .progress-bar {
+    background-color: #2c3e50;
+    border-radius: 5px;
+    height: 10px;
+    width: 100%;
+    margin-left: 1rem;
+    overflow: hidden;
+}
+
+.skill-list .progress-fill {
+    background-color: #f1c40f;
+    height: 100%;
+    border-radius: 5px;
+    transition: width 0.3s ease;
+}
+
+.skill-list .actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn {
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn.edit {
+    background-color: #f1c40f;
+    color: #333;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn.delete {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}

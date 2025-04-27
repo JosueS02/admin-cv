@@ -1,0 +1,66 @@
+<div class="skill-section">
+  <div class="skill-form card">
+      <h2>{{ btntxt }} Habilidad</h2>
+      <form (ngSubmit)="AgregarSkill()">
+          <div class="form-group">
+              <label for="skillName">Tipo de skill</label>
+              <input
+                  type="text"
+                  id="skillName"
+                  class="txt"
+                  placeholder="Tipo de skill"
+                  [(ngModel)]="mySkill.skill"
+                  name="skill"
+              />
+          </div>
+          <div class="form-group">
+              <label for="skillPercentage">Porcentaje de tu skill</label>
+              <input
+                  type="text"
+                  id="skillPercentage"
+                  class="txt"
+                  placeholder="Porcentaje de tu skill"
+                  [(ngModel)]="mySkill.percentage"
+                  name="level"
+              />
+          </div>
+          <button type="submit" class="btn submit">{{ btntxt }}</button>
+          <button type="button" class="btn" *ngIf="isEditing" (click)="resetForm()">Cancelar</button>
+      </form>
+  </div>
+
+  <div class="skill-list card">
+      <h2>Habilidades Guardadas</h2>
+      <div *ngFor="let skill of skills" class="skill-item">
+          <div class="skill-main">
+              <div class="skill-info">
+                  <span class="skill-skill">{{ skill.skill }}</span>
+                  <span class="skill-percentage">{{ skill.percentage }}</span>
+                  <div class="progress-bar">
+                      <div class="progress-fill" [style.width.%]="skill.percentage"></div>
+                  </div>
+              </div>
+              <div class="actions">
+                  <button type="button" class="btn edit" (click)="editSkill(skill)">Editar</button>
+                  <button type="button" class="btn delete" (click)="deleteSkill(skill.id)">Eliminar</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<style>
+  .skill-item .actions {
+      display: flex;
+      gap: 0.5rem;
+  }
+
+  .btn.edit {
+      background-color: #2980b9;
+      color: white;
+  }
+
+  .btn.edit:hover {
+      background-color: #3498db;
+  }
+</style>

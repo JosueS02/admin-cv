@@ -1,0 +1,33 @@
+<div class="language-section">
+  <div class="language-form card">
+    <h2>{{ btntxt }} Idioma</h2>
+    <form (ngSubmit)="AgregarLanguage()">
+      <div class="form-group">
+        <label for="languageName">Idioma que hablas</label>
+        <input
+          type="text"
+          id="languageName"
+          class="txt"
+          name="language"
+          placeholder="Idioma que hablas"
+          [(ngModel)]="myLanguage.language"
+        />
+      </div>
+      <button type="submit" class="btn submit">{{ btntxt }}</button>
+      <button type="button" class="btn" *ngIf="isEditing" (click)="resetForm()">Cancelar</button>
+    </form>
+  </div>
+
+  <div class="language-list card">
+    <h2>Idiomas Guardados</h2>
+    <div *ngFor="let lang of languages" class="language-item">
+      <div class="language-info">
+        <span class="language-name">{{ lang.language }}</span>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn edit" (click)="editLanguage(lang)">Editar</button>
+        <button type="button" class="btn delete" (click)="deleteLanguage(lang.id)">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,700');
+
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #1e1b2e;
+  color: #f0f0f0;
+}
+
+/* Reset básicos */
+a {
+  text-decoration: none;
+  color: inherit;
+}

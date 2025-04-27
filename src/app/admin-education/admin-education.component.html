@@ -1,0 +1,39 @@
+<div class="education-section">
+  <div class="edu-form card">
+      <h2>{{ btntxt }} Educación</h2>
+      <form (ngSubmit)="AgregarEducation()">
+          <div class="form-group">
+              <label for="startDate">Fecha de Inicio</label>
+              <input type="text" id="startDate" class="txt" name="startDate" [(ngModel)]="myEducation.startDate"
+                  placeholder="mmm-yyyy" />
+          </div>
+          <div class="form-group">
+              <label for="school">Escuela</label>
+              <input type="text" id="school" class="txt" name="school" [(ngModel)]="myEducation.school"
+                  placeholder="Escuela" />
+          </div>
+          <div class="form-group">
+              <label for="location">Locación</label>
+              <input type="text" id="location" class="txt" name="location" [(ngModel)]="myEducation.location"
+                  placeholder="Locación" />
+          </div>
+          <button type="submit" class="btn submit">{{ btntxt }}</button>
+          <button type="button" class="btn" *ngIf="isEditing" (click)="resetForm()">Cancelar</button>
+      </form>
+  </div>
+
+  <div class="edu-list card">
+      <h2>Estudios Guardados</h2>
+      <div *ngFor="let edu of education;" class="edu-item">
+          <div class="edu-info">
+              <span class="edu-school">{{ edu.school }}</span>
+              <span class="edu-startDate">{{ edu.startDate }}</span>
+              <span class="edu-location">({{ edu.location }})</span>
+          </div>
+          <div class="actions">
+              <button class="btn edit" (click)="editEducation(edu)">Editar</button>
+              <button class="btn delete" (click)="deleteEducation(edu.id)">Eliminar</button>
+          </div>
+      </div>
+  </div>
+</div>

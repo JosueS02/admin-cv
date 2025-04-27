@@ -1,0 +1,31 @@
+<div class="interest-section">
+  <div class="interest-form card">
+    <h2>{{btntxt}} Interés</h2>
+    <form (ngSubmit)="AregarInterest()">
+      <div class="form-group">
+        <label for="interestName">¿Cuáles son tus pasatiempos?</label>
+        <input
+          type="text"
+          id="interestName"
+          class="txt"
+          name="interest"
+          placeholder="¿Cuales son tus pasatiempos?"
+          [(ngModel)]="myInterests.interest"
+        />
+      </div>
+      <button type="submit" class="btn submit">Guardar</button>
+      <button type="button" class="btn" *ngIf="isEditing" (click)="resetForm()">Cancelar</button>
+    </form>
+  </div>
+
+  <div class="interest-list card">
+    <h3>Tus intereses</h3>
+    <div *ngFor="let item of interests" class="interest-item">
+      <span class="interest-name">{{ item.interest }}</span>
+      <div class="actions">
+        <button type="button" class="btn edit" (click)="editInterest(item)">Editar</button>
+        <button type="button" class="btn delete" (click)="deleteInterest(item.id)">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
